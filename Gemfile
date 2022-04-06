@@ -8,6 +8,7 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "active_model_serializers", "~> 0.10.13"
+gem "rack-cors", "~> 1.1"
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
@@ -20,4 +21,8 @@ group :development do
   gem "faker", "~> 2.20"
 end
 
-gem "pg", "~> 1.3", :group => :production
+group :production do
+  gem "pg", "~> 1.3"
+end
+
+
