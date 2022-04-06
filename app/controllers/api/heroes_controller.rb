@@ -1,4 +1,4 @@
-class HeroesController < ApplicationController
+class Api::HeroesController < ApplicationController
   before_action :set_hero, only: %i[show update destroy]
 
   # GET /heroes
@@ -18,7 +18,7 @@ class HeroesController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
-      render json: @hero, status: :created, location: @hero
+      render json: @hero, status: :created
     else
       render json: @hero.errors, status: :unprocessable_entity
     end
