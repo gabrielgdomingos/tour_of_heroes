@@ -13,6 +13,7 @@ gem "rack-cors", "~> 1.1"
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 5.1"
 end
 
 group :development do
@@ -21,8 +22,10 @@ group :development do
   gem "faker", "~> 2.20"
 end
 
+group :test do
+  gem "shoulda-matchers", "~> 5.1"
+end
+
 group :production do
   gem "pg", "~> 1.3"
 end
-
-
