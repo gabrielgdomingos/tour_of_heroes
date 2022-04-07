@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "active_model_serializers", "~> 0.10.13"
 gem "rack-cors", "~> 1.1"
+gem "rake", "~> 13.0"
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
