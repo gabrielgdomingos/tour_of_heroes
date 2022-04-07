@@ -43,7 +43,10 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bundle exec rails db:schema:load --trace
+          command: rails db:migrate
+      - run:
+          name: Database seed
+          command: rails db:seed
       - run:
           name: Run Rspec
           command: RAILS_ENV=test bundle exec rspec --format progress $TEST_FILES
