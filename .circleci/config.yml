@@ -19,10 +19,10 @@ jobs:
     # here we set TWO docker images.
     docker:
       - image: circleci/ruby:2.7.2 # this is our primary docker image, where step commands run.
-      - image: cimg/postgres:13.5
+      - image: circleci/postgres:9.5-alpine
         environment: # add POSTGRES environment variables.
           POSTGRES_USER: circleci-demo-ruby
-          POSTGRES_DB: tour_of_heroes_test
+          POSTGRES_DB: YOUR_DB_test
           POSTGRES_PASSWORD: ''
     # environment variables specific to Ruby/Rails, applied to the primary container.
     environment:
@@ -43,10 +43,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: rails db:migrate
-      - run:
-          name: Database seed
-          command: rails db:seed
+          command: bundle exec rails db:schema:load --trace
       - run:
           name: Run Rspec
           command: RAILS_ENV=test bundle exec rspec --format progress $TEST_FILES
