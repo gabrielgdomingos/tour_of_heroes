@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Hero, type: :model do
+  
+  let(:name) { 'Thor' }
+
   subject { Hero.new(name: 'Thor') }
 
   describe 'validations' do
@@ -11,8 +14,7 @@ RSpec.describe Hero, type: :model do
 
   describe 'scopes' do
     it '.search' do
-      name = 'Thor'
-      expect(Hero.where('LOWER(name) LIKE ?', "%#{name.downcase}%")).to eq Hero.search(name)
+      expect(Hero.where('LOWER(name) LIKE ?', "%#{:name.downcase}%")).to eq Hero.search(:name)
     end
 
     it '.sorted_by_name' do
