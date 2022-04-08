@@ -22,6 +22,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem "faker", "~> 2.20"
+  gem "spring-commands-rspec", "~> 1.0"
 end
 
 group :test do
@@ -32,3 +33,4 @@ end
 group :production do
   gem "pg", "~> 1.3"
 end
+
